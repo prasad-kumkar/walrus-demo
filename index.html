@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>walrus playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>walrus storage playground</h1>
+        <p class="subtitle">store & retrieve data on <a href="https://www.walrus.xyz/" target="_blank">walrus</a> (sui's decentralized storage layer)</p>
+
+        <div class="panels">
+            <section class="panel write-panel">
+                <h2>write</h2>
+                <textarea id="input-data" placeholder="paste any text here..." rows="6"></textarea>
+                <div class="controls">
+                    <label>
+                        epochs
+                        <input type="number" id="epochs" value="5" min="1" max="200">
+                    </label>
+                    <button id="store-btn" onclick="storeBlob()">store on walrus</button>
+                </div>
+                <div id="write-result" class="result hidden"></div>
+            </section>
+
+            <section class="panel read-panel">
+                <h2>read</h2>
+                <div class="input-row">
+                    <input type="text" id="blob-id" placeholder="blob id...">
+                    <button id="read-btn" onclick="readBlob()">fetch</button>
+                </div>
+                <div id="read-result" class="result hidden"></div>
+            </section>
+        </div>
+
+        <section class="history-section">
+            <h2>recent blobs</h2>
+            <div id="history">
+                <p class="empty-state">nothing stored yet</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>
+                uses walrus testnet publisher & aggregator.
+                data persists for the configured number of epochs (~24h each).
+                <br>
+                <a href="https://docs.wal.app/" target="_blank">walrus docs</a> ·
+                <a href="https://sui.io/" target="_blank">sui</a> ·
+                <a href="https://github.com/prasad-kumkar/walrus-demo" target="_blank">source</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
